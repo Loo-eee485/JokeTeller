@@ -1,0 +1,73 @@
+/* ROBOT.GIF from Giphy - https://giphy.com/gifs/robot-cinema-4d-eyedesyn-3o7abtn7DuREEpsyWY */
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #45badd;
+}
+
+.container {
+  /* dynamically scaling our project based on the size of the viewport */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("./images/robot.gif");
+  /* contain makes the image fully visible on the page */
+  background-size: contain;
+  /* left is the horizontal property and center is the vertical property */
+  background-position: left center;
+  /* use no-repeat because I only want it to happen once */
+  background-repeat: no-repeat;
+}
+
+button {
+  /* allows the cursor turn to a hand when the default cursor user hovers over the button */
+  cursor: pointer;
+  outline: none;
+  width: 200px;
+  height: 50px;
+  /* standard fonts that work on windows or mac */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  color: white;
+  background: #ff3482;
+  border: none;
+  border-radius: 5px;
+  /* 1. horizontal offset to the right 2.vertical offset down 3. the blur- how far out the shadow will go 4. the spread-how far out the whole shadow will spread from the element 5. color - to change the opacity of the shadow*/
+  box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  /* the color will get 5% darker when the user hovers over it */
+  filter: brightness(95%);
+}
+
+button:active {
+  /* scale our button down; when we click the button, it will be 2% smaller  */
+  transform: scale(0.98);
+}
+
+button:disabled {
+  /* when this button is disabled, I want it darker and change the cursor to default to show the user that they can't quite click on it */
+  cursor: default;
+  /* the button will be 70% darker when disabled */
+  filter: brightness(30%);
+}
+
+/* MEDIA QUERY: FOR TABLET OR SMALLER */
+@media screen and (max-width: 1000px) {
+  .container {
+    background-position: center center;
+    background-size: cover;
+  }
+
+  button {
+    box-shadow: 5px, 5px, 30px, 20px, rgba(0, 0, 0, 0.6);
+  }
+}
